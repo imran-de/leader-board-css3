@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
 /* base style or utilitis */
 body{
+    margin: 0;
     font-family: 'Poppins', sans-serif;
     background-color: #F3F1FF;
 }
@@ -24,6 +25,102 @@ main{
 hr{
     border: 1px solid #d1d1d1;
     margin-bottom: 27px;
+}
+.fixed-top{
+    position: sticky;
+    top: 0;
+}
+/**
+nav bar style
+**/
+/* NABVAR */
+.navbar{
+    background-color: #0c8e97;
+    height: 70px;
+    /* overflow-y: hidden; */
+}
+.navbar-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.navbar-brand{
+    height: 70px;
+    display: flex;
+    align-items: center;
+}
+.navbar-brand-logo{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f8f6f6;
+    font-weight: 600;
+}
+.navbar-brand img{
+    width: 50px;
+    height: 60px;
+}
+.responsive-menu{
+    display: none;
+}
+.navbar-nav{
+    list-style: none;
+    display: flex;
+    margin: 0;
+}
+.navbar-nav .nav-item{    
+    padding: 10px 40px;
+    margin: 10px 0px;
+}
+.navbar-nav .nav-item .nav-link{
+    text-decoration: none;
+    color: whitesmoke;
+    letter-spacing: 1px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+}
+.navbar-nav .nav-item:hover{
+    background-color: #0dc8e9;
+    border-radius: 10px;
+}
+@media only screen and (max-width: 688px) {
+    .navbar-container{
+        padding: 0px 20px;
+        justify-content: space-between;
+        align-items: center;
+    }
+    #toggle{
+       display: block;
+        color: #FF4A60;
+    }
+    .btn-responsive{
+        border: none;
+        background-color: #0c8e97;
+        color: whitesmoke;
+        font-size: 28px;
+        display: flex;
+        align-items: center;
+    }
+    .navbar-nav{
+        display: block;
+    }
+    #menu{
+        display: none;
+        cursor: pointer;
+        position: absolute;
+        background-color: violet;
+        left: 0;
+        width: 100%;
+    }
+    #toggle:checked #menu{
+        display: block;
+    }
+    .btn-responsive:before{
+        /* content: "f0c9"; */
+        color: whitesmoke;
+    }
+    .btn-responsive:after{
+        /* content: "f00d"; */
+        color: whitesmoke;
+    }
 }
 /** Top players **/
 .top-players{
