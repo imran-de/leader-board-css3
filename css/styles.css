@@ -69,6 +69,7 @@ nav bar style
 .navbar-nav .nav-item{    
     padding: 10px 40px;
     margin: 10px 0px;
+    transition: all 2s;
 }
 .navbar-nav .nav-item .nav-link{
     text-decoration: none;
@@ -80,47 +81,6 @@ nav bar style
 .navbar-nav .nav-item:hover{
     background-color: #0dc8e9;
     border-radius: 10px;
-}
-@media only screen and (max-width: 688px) {
-    .navbar-container{
-        padding: 0px 20px;
-        justify-content: space-between;
-        align-items: center;
-    }
-    #toggle{
-       display: block;
-        color: #FF4A60;
-    }
-    .btn-responsive{
-        border: none;
-        background-color: #0c8e97;
-        color: whitesmoke;
-        font-size: 28px;
-        display: flex;
-        align-items: center;
-    }
-    .navbar-nav{
-        display: block;
-    }
-    #menu{
-        display: none;
-        cursor: pointer;
-        position: absolute;
-        background-color: violet;
-        left: 0;
-        width: 100%;
-    }
-    #toggle:checked #menu{
-        display: block;
-    }
-    .btn-responsive:before{
-        /* content: "f0c9"; */
-        color: whitesmoke;
-    }
-    .btn-responsive:after{
-        /* content: "f00d"; */
-        color: whitesmoke;
-    }
 }
 /** Top players **/
 .top-players{
@@ -236,6 +196,62 @@ Courses Style
     padding: 0 6px;
     text-align: center;
 }
+/************
+Contact
+**************/
+.contacts{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+.contact-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-image img{
+    width: 100%;
+}
+.input-box{
+    padding: 10px 0px;
+}
+.input-box label{
+    padding-bottom: 5px;
+    width: 100%;
+    display: block;
+    font-weight: 900;
+}
+.input-box input{
+    border: 1px solid rgba(0, 255, 255, 0.433);
+    height: 40px;
+    border-radius: 5px;
+    padding-left: 10px;
+    width: 100%;
+    font-size: 17px;
+}
+.input-box input:focus,textarea:focus{
+ outline: 1px solid yellowgreen;
+}
+.input-box textarea{
+    border: 1px solid rgba(0, 255, 255, 0.433);
+    width: 100%;
+    font-size: 17px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.contact-btn{
+    border: none;
+    background: linear-gradient(135deg,orange, tomato,red);
+    padding: 10px 20px;
+    color: whitesmoke;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.contact-btn:hover{
+    background: linear-gradient(135deg,red,orange, tomato);
+    transition: all 2s;
+}
 /*------------------
 Footer
 --------------------*/
@@ -251,10 +267,46 @@ Media Queries
 
 /* Mobile devices*/
 @media only screen and (max-width: 688px) {
+    /*nav menu*/
+    .navbar-container{
+        padding: 0px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        text-align: right;
+    }
+    .navbar-menu{
+        display: none;
+    }
+    .come{
+        display: block;
+    }
+    .navbar-nav{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    padding-left: 0;
+    width: 100%;
+    background-color: #0c8e97;
+    text-align: left;
+    }
+    .responsive-menu{
+        display: block;
+    }
+  
+    .btn-responsive{
+        border: none;
+        background-color: #0c8e97;
+        color: whitesmoke;
+        font-size: 28px;
+        cursor: pointer;
+    }
+    /* /.End nav menu  */
     .container{
         width: 100%;
     }
-    .players, .blogs, .courses{
+    .players, .blogs, .courses, .contacts{
        grid-template-columns: repeat(1, 1fr);
     }
     .player, .blog, .course{
@@ -264,16 +316,56 @@ Media Queries
     .course-banner{
         text-align: center;
     }
+    .contact-image img{
+        width: 50%;
+    }
 }
 /* Tablet devices */
-@media only screen and (min-width: 689px) and (max-width: 991px) {
+@media only screen and (min-width: 689px) and (max-width: 991px) { 
+     /*nav menu*/
+    .navbar-container{
+        padding: 0px 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        align-items: center;
+        text-align: right;
+    }
+    .navbar-menu{
+        display: none;
+    }
+    .come{
+        display: block;
+    }
+    .navbar-nav{
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    padding-left: 0;
+    width: 100%;
+    background-color: #0c8e97;
+    text-align: left;
+    }
+    .responsive-menu{
+        display: block;
+    }
+  
+    .btn-responsive{
+        border: none;
+        background-color: #0c8e97;
+        color: whitesmoke;
+        font-size: 28px;
+        cursor: pointer;
+    }
+    /*.End nav menu*/
+
     .container{
         width: 80%;
     }
     .players, .courses{
        grid-template-columns: repeat(2, 1fr);
     }
-    .blogs{
+    .blogs, .contacts{
         grid-template-columns: repeat(1, 1fr);
     }
     .player, .course{
@@ -282,5 +374,8 @@ Media Queries
     }    
     .course-banner{
         text-align: center;
+    }
+    .contact-image img{
+        width: 50%;
     }
 }
