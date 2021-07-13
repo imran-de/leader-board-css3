@@ -69,7 +69,7 @@ nav bar style
 .navbar-nav .nav-item{    
     padding: 10px 40px;
     margin: 10px 0px;
-    transition: all 2s;
+    transition: ease-in 2s;
 }
 .navbar-nav .nav-item .nav-link{
     text-decoration: none;
@@ -241,16 +241,28 @@ Contact
     padding-left: 10px;
 }
 .contact-btn{
+    position: relative;
     border: none;
     background: linear-gradient(135deg,orange, tomato,red);
     padding: 10px 20px;
     color: whitesmoke;
     border-radius: 5px;
     cursor: pointer;
+    /* transform: skew(-30deg, 20deg); */
+    transition: all 1s ;
 }
-.contact-btn:hover{
+.contact-btn::after{
+    content: " ";
+    top: 0;
+    left: 0;
+    position: absolute;
+    opacity: 0;
     background: linear-gradient(135deg,red,orange, tomato);
-    transition: all 2s;
+    transition: all 1s;
+}
+.contact-btn:hover::after{
+    opacity: 1;
+    /* color: rgb(26, 16, 1); */
 }
 /*------------------
 Footer
