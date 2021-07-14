@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transition Menu</title>
+    <!-- Font awesome -->
+    <script src="https://kit.fontawesome.com/5eb78c6ae7.js" crossorigin="anonymous"></script>
+    <style>
+        body{
+            background-color: whitesmoke;
+            height: 100vh;
+            margin: 0;
+        }
+        .navbar{
+            display: grid;
+            grid-template-columns: 6em repeat(1, 1fr);            
+        }
+        .nav-toggle{
+            background-color: whitesmoke;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9;
+            border-right: 1px groove rgba(128, 128, 128, 0.433);
+        }
+        .navbar-menu{
+            background-color: cornsilk;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: radial-gradient(circle farthest-corner at 50% 50%,transparent 38%,#000 74%),linear-gradient(180deg,rgba(12,12,12,.9),rgba(12,12,12,.9)),url(https://uploads-ssl.webflow.com/5dab15da51ef3a464e800f3b/5daf19731a61d07efbf600ce_Potestas_Hero_Background_V.jpg);
+            background-position: 0 0,0 0,50% 50%;
+            background-size: auto,auto,cover;
+            background-attachment: scroll,scroll,scroll;
+        }
+        .navbar-nav{
+            list-style: none;
+            padding-left: 0;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);     
+            justify-content: center;
+            align-items: center;  
+            z-index: 1;
+        }        
+        .grid-nav-item{
+            display: inline-block;
+            overflow-x: hidden;
+            /* border: 4px solid rebeccapurple; */
+        }
+        .nav-item{
+            position: relative;
+            top: 0;
+            left: -100%;
+            /* width: 100%; */
+            overflow-x: hidden;          
+            height: 100vh;
+             display: flex; 
+            justify-content: center;
+            align-items: center;
+            border-right: 1px solid rgba(128, 128, 128, 0.378);
+            opacity: 0;
+            z-index: 0;
+            background-color: whitesmoke;
+            transform: scale3d(0);
+            transition: opacity 2s ease;
+            transition: all 1s ease;
+        }
+        /* .nav-item:hover:after{
+            z-index: 1;
+            opacity: 1;
+            left: 0%;
+            transform: scale3d(1);
+        } 
+        .nav-item:hover a{
+            z-index: 2;
+        }
+        .nav-item:last-child{
+            border-right: none;
+        }*/
+        a{
+            text-decoration: none;
+            color: black;
+            font-size: 28px;
+            font-weight: 700;
+            z-index: 0;
+        }
+        button{
+            border: none;
+            background-color: whitesmoke;
+            font-size: 28px;
+            z-index: 9;
+            cursor: pointer;
+        }
+        .center-menu{
+            color: white;
+            font-size: 40px;
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            z-index: 0;
+        }
+        h1{
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-toggle">                
+                <button id="toggle" class="toggle" onclick="nav()">
+                     <i id="bar" class="fas fa-bars"></i>
+                     <!-- <i id="close" class="fas fa-times"></i> -->
+                    </button>
+            </div>
+            <div id="menu" class="navbar-menu">
+                <div class="navbar-nav">
+                    <div class="grid-nav-item">
+                        <div id="item1" class="nav-item">
+                            <a href="#">Home-1</a>
+                            <div class="transition-effect">                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-nav-item">
+                        <div id="item2" class="nav-item">
+                            <a href="#">Home-2</a>
+                            <div class="transition-effect">                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-nav-item">
+                        <div id="item3" class="nav-item">
+                            <a href="#">Home-3</a>
+                            <div class="transition-effect">                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-nav-item">
+                        <div id="item4" class="nav-item">
+                            <a href="#">Home-4</a>
+                            <div class="transition-effect">                            
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid-nav-item">
+                        <div id="item5" class="nav-item">
+                            <a href="#">Home-5</a>
+                            <div class="transition-effect">                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="center-menu">
+            <h1>Who are you</h1>
+        </div>
+    </header>
+    <script>
+        function nav(){
+            var btn = document.getElementById("toggle");
+           var x = document.getElementById("item1");
+           var y = document.getElementById("item2");
+           var z = document.getElementById("item3");
+           var a = document.getElementById("item4");
+           var b = document.getElementById("item5");
+            if (x.className === "nav-item" && btn.className === "toggle"){
+                btn.innerHTML = "<i class='fas fa-times'></i>";
+                x.className +=" transition";x.style.opacity = "1";x.style.left = "0";x.style.transform = "scale3d(1)";x.style.transition = "all .5s";
+                //y 
+                y.className +=" transition";y.style.opacity = "1";y.style.left = "0";y.style.transform = "scale3d(1)";y.style.transition = "all .5s";
+                //z 
+                z.className +=" transition";z.style.opacity = "1";z.style.left = "0";z.style.transform = "scale3d(1)";z.style.transition = "all .5s";
+                //a 
+                a.className +=" transition";a.style.opacity = "1";a.style.left = "0";a.style.transform = "scale3d(1)";a.style.transition = "all .5s";
+                //b 
+                b.className +=" transition";b.style.opacity = "1";b.style.left = "0";b.style.transform = "scale3d(1)";b.style.transition = "all .5s";
+            }else{
+                btn.innerHTML = "<i class='fas fa-bars'></i>";
+                x.className = "nav-item";x.style.opacity = "0";x.style.left = "-100%";x.style.transform = "scale3d(0)";
+                //y 
+                y.className = "nav-item";y.style.opacity = "0";y.style.left = "-100%";y.style.transform = "scale3d(0)";
+                //z
+                z.className = "nav-item";z.style.opacity = "0";z.style.left = "-100%";z.style.transform = "scale3d(0)";
+                //a 
+                a.className = "nav-item";a.style.opacity = "0";a.style.left = "-100%";a.style.transform = "scale3d(0)";
+                //b 
+                b.className = "nav-item";b.style.opacity = "0";b.style.left = "-100%";b.style.transform = "scale3d(0)";
+            }
+        }
+    </script>
+</body>
+</html>
